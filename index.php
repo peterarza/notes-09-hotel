@@ -1,3 +1,10 @@
+<?php
+/* Everytime you need to run php code, it must be run inside a php file. hTML cannot run php code because it is not a server side language. */
+    include_once 'php/dbconnect.php';
+?>
+
+
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -16,36 +23,52 @@
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
     <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+        <h1>Hotel Booking Form</h1>
 
-        <div class="header-container">
-            <header class="wrapper clearfix">
-                <h1 class="title">Title</h1>
-            </header>
-        </div>
+        <p>* denotes a required field</p>
+        <p class="notify"></p>
+        
+        <form name="hotelForm" action="php/store.php" onsubmit="return validation()" method="post">
 
-        <div class="main-container">
-            <div class="main wrapper clearfix">
+            <p>
+                <label for="firstname">First Name*:</label>
+                <input type="text" name="firstname" id="firstname">
+            </p>
 
-                <article>
-                   <?php
+                <p>
+                    <label for="lastname">Last Name*:</label>
+                    <input type="text" name="lastname" id="lastname">
 
-                    /* Your PHP below. */
-                    
-                   ?>
-                </article>
+                </p>
 
+                <p>
+                    <label for="roomSize">Room Size:</label>
+                    <select name="roomsize">
+                        <option value="Single">Single</option>
+                        <option value="Suite">Suite</option>
+                        <option value="Executive">Executive</option>
+                        <option value="Deluxe">Deluxe</option>
+                    </select>
 
-            </div> <!-- #main -->
-        </div> <!-- #main-container -->
+                </p>
 
-        <div class="footer-container">
-            <footer class="wrapper">
-                
-            </footer>
-        </div>
+                <p>
+                    <label for="checkIn">Check In Type:</label>
+                    <select name="checkin">
+                        <option value="Front Desk">Front Desk</option>
+                        <option value="Online">Online</option>
+                        <option value="Mobile App">Mobile App</option>
+                        <option value="Assisted">Assisted</option>
+                    </select>
+
+                </p>
+
+                <input type="submit" value="Submit">
+
+        </form>
+        <hr>
+       <a href="http://localhost:8888/notes-09-hotel/php/view.php">Go Home</a>
+
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.js"><\/script>')</script>
